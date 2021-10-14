@@ -1,8 +1,11 @@
 package com.codepath.apps.restclienttemplate;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -23,10 +27,11 @@ import okhttp3.Headers;
 public class ComposeActivity extends AppCompatActivity {
 
     public static final String TAG = "ComposeActivity";
-    public static final int MAX_TWEET_LENGTH = 140;
+    public static final int MAX_TWEET_LENGTH = 280;
 
     EditText etCompose;
     Button btnTweet;
+    TextView tvCharCount;
 
     TwitterClient client;
 
@@ -36,24 +41,24 @@ public class ComposeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_compose);
 
         client = TwitterApp.getRestClient(this);
-
+        tvCharCount = findViewById(R.id.tvCharCount);
         etCompose = findViewById(R.id.etCompose);
 
         // Set text changed listener for compose text box
         etCompose.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                int textLength = s.length();
+                tvCharCount.setTextColor(textLength <= MAX_TWEET_LENGTH ? Color.BLACK : Color.RED);
+                tvCharCount.setText(MAX_TWEET_LENGTH - s.length() + "");
             }
         });
 
