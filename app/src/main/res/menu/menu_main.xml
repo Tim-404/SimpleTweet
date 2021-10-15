@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/logout"
+        android:icon="@drawable/twitter_logout_white"
+        android:title="Logout"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/compose"
         android:icon="@drawable/white_twitter_compose"
         android:title="Compose"

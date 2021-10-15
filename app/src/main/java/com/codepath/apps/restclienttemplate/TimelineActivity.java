@@ -84,6 +84,14 @@ public class TimelineActivity extends AppCompatActivity {
             startActivityForResult(i, REQUEST_CODE);
             return true;
         }
+        if (item.getItemId() == R.id.logout) {
+            // Clear OAuth access token
+            client.clearAccessToken();
+            // Return to login screen
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
