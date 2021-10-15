@@ -4,20 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp">
+    android:layout_marginBottom="10dp">
 
     <ImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvScreenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivProfileImage"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="-5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         tools:text="Dinnerbone" />
 
     <TextView
@@ -25,16 +31,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvScreenName"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="2dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_alignStart="@+id/tvScreenName"
+        android:layout_marginStart="0dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:text="Minecraft 1.18 got delayed again." />
 
     <TextView
         android:id="@+id/tvRelativeTimeStamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvScreenName"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="20dp"
         tools:text="2h" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="?android:attr/listDivider" />
 </RelativeLayout>
