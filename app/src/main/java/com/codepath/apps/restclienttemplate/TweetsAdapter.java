@@ -18,7 +18,7 @@ import java.util.List;
 
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
 
-    public static final int PROFILE_IMG_CORNER_RADIUS = 5;
+    public static final int PROFILE_IMG_CORNER_RADIUS = 20;
 
     Context context;
     List<Tweet> tweets;
