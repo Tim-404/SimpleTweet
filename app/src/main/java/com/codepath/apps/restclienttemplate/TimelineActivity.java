@@ -147,7 +147,7 @@ public class TimelineActivity extends AppCompatActivity {
         // Send an API request to retrieve appropriate paginated data
         client.getNextPageOfTweets(new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, okhttp3.Headers headers, JSON json) {
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.i(TAG, "onSuccess for loadMoreData!" + json.toString());
                 //  --> Deserialize and construct new model objects from the API response
                 JSONArray jsonArray = json.jsonArray;
@@ -161,7 +161,7 @@ public class TimelineActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(int statusCode, okhttp3.Headers headers, String response, Throwable throwable) {
+            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                 Log.i(TAG, "onFailure for loadMoreData!" + throwable);
             }
         }, tweets.get(tweets.size() - 1).id);
